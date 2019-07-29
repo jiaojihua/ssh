@@ -30,7 +30,7 @@ public abstract class Human {
 		this.sex = sex;
 		this.nation = nation;
 		this.birth = birth;
-		IDCard = iDCard;
+		this.IDCard = iDCard;
 		this.birthAddress = birthAddress;
 	}
 

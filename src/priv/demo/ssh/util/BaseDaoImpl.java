@@ -17,6 +17,7 @@ public abstract class BaseDaoImpl<T> implements BaseDao<T> {
 	private Class<T> entityClass;
 	protected SessionFactory sessionFactory;
 	
+	
 	public BaseDaoImpl() {
 		//当BaseDaoImpl<T>被继承时，使用该代码可以获取T的类型
 		ParameterizedType pt = (ParameterizedType)this.getClass().getGenericSuperclass();
@@ -90,5 +91,15 @@ public abstract class BaseDaoImpl<T> implements BaseDao<T> {
 		query.setFirstResult((pageNo-1)*pageSize);
 		return query.list();
 	}
+	
+	@Override
+	public int getTotalCount() {
+		// TODO Auto-generated method stub
+		Session session = sessionFactory.getCurrentSession();
+		String sql = "select count(*) from "+entityClass.getSimpleName().toLowerCase();
+		Query query = session.createSQLQuery(sql);
+		return (int) query.uniqueResult();
+	}
+
 
 }

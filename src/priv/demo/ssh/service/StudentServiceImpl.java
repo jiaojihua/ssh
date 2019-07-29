@@ -34,6 +34,36 @@ public class StudentServiceImpl implements StudentService {
 	public void setStudentDao(StudentDao studentDao) {
 		this.studentDao = studentDao;
 	}
+
+	@Override
+	public void addStudent(Student student) {
+		// TODO Auto-generated method stub
+		studentDao.save(student);
+	}
+
+	@Override
+	public void modifyStudent(Student student) {
+		// TODO Auto-generated method stub
+		studentDao.update(student);
+	}
+
+	@Override
+	public void deleteStudent(int id) {
+		// TODO Auto-generated method stub
+		studentDao.deletyById(id);;
+	}
+
+	@Override
+	public List<Student> searchByPage(int pageSize, int pageNum) {
+		// TODO Auto-generated method stub
+		return studentDao.findByPage(pageNum, pageSize);
+	}
+
+	@Override
+	public int getTotalCount() {
+		// TODO Auto-generated method stub
+		return studentDao.getTotalCount();
+	}
 	
 	
 

@@ -16,5 +16,7 @@ public interface BaseDao<T> {
 	public T findById(Serializable id);//根据id查询
 	public List<T> findAll();//查找所有对象
 	public Object findByHql(String hql, Object...paras);//根据hql语句查询
-	public List<T> findByPage(int pageNo, int pageSize);//分布查询
+	public List<T> findByPage(int pageNo, int pageSize);//分页查询
+	public int getTotalCount();//查询总记录数
+	
 }
